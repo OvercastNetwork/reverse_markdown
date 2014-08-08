@@ -14,6 +14,7 @@ module ReverseMarkdown
         atr.delete("target")
         atr.delete("alt")
         atr.delete("title")
+        atr.delete("rel")
 
         if atr.empty?
           converter = ReverseMarkdown::Converters.lookup(node.name)
