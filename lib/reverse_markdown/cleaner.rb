@@ -2,7 +2,11 @@ module ReverseMarkdown
   class Cleaner
 
     def tidy(string)
-      clean_tag_borders(remove_leading_newlines(remove_newlines(remove_inner_whitespaces(string))))
+      clean_tag_borders(remove_leading_newlines(remove_newlines(remove_newline_whitespace(remove_inner_whitespaces(string)))))
+    end
+
+    def remove_newline_whitespace(string)
+      string.strip.gsub(/ +\n/, "\n")
     end
 
     def remove_newlines(string)
